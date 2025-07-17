@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Interactivo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">📅 Calendario Digital</h1>
+        
+        <div class="calendar">
+            <div class="calendar__info">
+                <div class="calendar__prev" id="prev-month">◀</div>
+                <div class="calendar__month" id="month">Junio</div>
+                <div class="calendar__year" id="year">2024</div>
+                <div class="calendar__next" id="next-month">▶</div>
+            </div>
+
+            <div class="calendar-week">
+                <div class="calendar__day calendar__item">Lun</div>
+                <div class="calendar__day calendar__item">Mar</div>
+                <div class="calendar__day calendar__item">Mié</div>
+                <div class="calendar__day calendar__item">Jue</div>
+                <div class="calendar__day calendar__item">Vie</div>
+                <div class="calendar__day calendar__item">Sáb</div>
+                <div class="calendar__day calendar__item">Dom</div>
+            </div>
+
+            <div class="calendar-days" id="calendar-days">
+                <!-- Los días se agregan dinámicamente -->
+            </div>
+
+            <div class="info-panel">
+                <div id="current-info">📍 Hoy es: <span id="today-info"></span></div>
+                <div class="leap-year-indicator" id="leap-year-info"></div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color today-legend"></div>
+                    <span>Hoy</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color holiday-legend"></div>
+                    <span>Feriados</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color weekend-legend"></div>
+                    <span>Fin de semana</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color event-legend"></div>
+                    <span>Eventos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 id="modal-title">Información del día</h2>
+                <div class="date" id="modal-date"></div>
+            </div>
+            <div class="modal-body">
+                <div id="holiday-info" class="holiday-info" style="display: none;">
+                    <div class="holiday-icon" id="holiday-icon">🎉</div>
+                    <div class="holiday-description" id="holiday-description"></div>
+                </div>
+                
+                <div class="events-section">
+                    <h3>📝 Tus eventos</h3>
+                    <div class="event-list" id="event-list">
+                        <div class="no-events" id="no-events">No hay eventos para este día</div>
+                    </div>
+                    <div class="add-event-form">
+                        <input type="text" class="event-input" id="event-input" placeholder="Agregar nuevo evento...">
+                        <button class="add-event-btn" id="add-event-btn">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
